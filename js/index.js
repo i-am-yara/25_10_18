@@ -2,11 +2,6 @@ const API_URL = "https://68f3513ffd14a9fcc4286bf9.mockapi.io";
 
 const collectionName = "movies";
 
-async function deleteOneMovie() {
-  const index = prompt("Введіть порядковий номер фільму для видалення");
-  await deleteMovie(movieCatalog[index - 1].id);
-}
-
 async function deleteMovie(elementId) {
   try {
     const response = await fetch(`${API_URL}/${collectionName}/${elementId}`, {
@@ -226,7 +221,6 @@ const modalForm = document.querySelector(".js-modal-form");
 my_form.onsubmit = saveMovie;
 modalForm.onsubmit = saveMovie;
 
-document.querySelector(".js-delete-one").onclick = deleteOneMovie;
 document.querySelector(".js-modal-close").onclick = () => {
   document.querySelector(".js-modal").classList.add("hidden");
   modalForm.reset();
